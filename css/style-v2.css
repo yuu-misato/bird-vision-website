@@ -1530,8 +1530,87 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .cost-v2-option { padding: 28px 20px; }
   .cost-v2-base-title { font-size: 18px; }
   .cost-v2-option-title { font-size: 18px; }
-  .cost-v2-table-wrap { padding: 16px 10px; }
+  .cost-v2-table-wrap { padding: 20px 16px; }
   .cost-v2-table-title { font-size: 15px; }
+
+  /* カード型料金表（モバイル） */
+  .cost-v2-table-scroll { overflow-x: visible; }
+  .cost-v2-table { min-width: 0; }
+  .cost-v2-table thead { display: none; }
+  .cost-v2-table tbody { display: flex; flex-direction: column; gap: 10px; }
+  .cost-v2-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    background: var(--gray-50);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--gray-200);
+  }
+  .cost-v2-table tbody td {
+    padding: 10px 14px;
+    border-bottom: none;
+    white-space: normal;
+    font-size: 13px;
+  }
+  /* 機種名（左上） */
+  .cost-v2-table tbody td:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    background: var(--navy);
+    color: var(--white);
+    padding: 12px 14px;
+  }
+  .cost-v2-table tbody td:nth-child(1) strong {
+    color: var(--white);
+    font-size: 16px;
+  }
+  /* 料金（右上） */
+  .cost-v2-table tbody td:nth-child(4) {
+    grid-column: 2;
+    grid-row: 1;
+    background: var(--navy);
+    text-align: right !important;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .cost-v2-table-price { color: var(--white) !important; font-size: 15px !important; }
+  .cost-v2-table-price span { color: rgba(255,255,255,0.6); }
+  /* クレーン種別（左下） */
+  .cost-v2-table tbody td:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    color: var(--text-light);
+    font-size: 12px;
+  }
+  /* 最大地上高（右下） */
+  .cost-v2-table tbody td:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: right;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  /* ハイライト（POPULAR）行 */
+  .cost-v2-table-highlight {
+    border: 2px solid var(--navy) !important;
+    position: relative;
+  }
+  .cost-v2-table-highlight td {
+    border: none;
+  }
+  .cost-v2-table-highlight td:first-child::before {
+    transform: none;
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    font-size: 9px;
+    padding: 2px 10px;
+    border-radius: 3px;
+    rotate: none;
+  }
   .cost-v2-case-left { padding: 28px 20px 20px; }
   .cost-v2-case-right { padding: 20px 20px 28px; gap: 20px; }
   .cost-v2-case-title { font-size: 20px; }
@@ -1620,10 +1699,9 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .cost-v2-option-title { font-size: 17px; }
   .cost-v2-option-list li { font-size: 13px; }
   .cost-v2-table-wrap { padding: 14px 8px; }
-  .cost-v2-table { min-width: 440px; }
-  .cost-v2-table thead th { padding: 10px 12px; font-size: 11px; }
-  .cost-v2-table tbody td { padding: 10px 12px; font-size: 13px; }
-  .cost-v2-table-price { font-size: 14px !important; }
+  .cost-v2-table tbody td { padding: 8px 12px; font-size: 12px; }
+  .cost-v2-table tbody td:nth-child(1) strong { font-size: 14px; }
+  .cost-v2-table-price { font-size: 13px !important; }
   .cost-v2-case-left { padding: 24px 16px 16px; }
   .cost-v2-case-right { padding: 16px 16px 24px; gap: 16px; }
   .cost-v2-case-title { font-size: 18px; }

@@ -24,7 +24,7 @@
 
 /* Reset */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 body {
   font-family: var(--font-sans);
   color: var(--text);
@@ -1328,18 +1328,156 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .footer-v2-nav { gap: 12px 20px; }
 }
 
-/* Small Mobile */
+/* Small Mobile (480px) */
 @media (max-width: 480px) {
   .hero-v2-title { font-size: 26px; }
   .intro-v2-heading { font-size: 22px; }
-  .section-heading-v2-en { font-size: 26px; }
-  .news-v2-card { grid-template-columns: 110px 1fr; }
+  .section-heading-v2-en { font-size: 22px; }
+  .section-heading-v2 { margin-bottom: 32px; }
+
+  .news-v2-card { grid-template-columns: 100px 1fr; }
+  .news-v2-card-image img { aspect-ratio: 1/1; height: 100%; }
   .news-v2-card-title { font-size: 13px; }
+  .news-v2-card-body { padding: 12px 14px; }
+  .news-v2-card-date { font-size: 10px; margin-bottom: 4px; }
+
+  .advantages-v2-heading { font-size: 22px; word-break: break-word; }
+
   .works-v2-grid { grid-template-columns: 1fr; }
   .works-v2-grid .works-v2-item:last-child { grid-column: span 1; }
   .works-v2-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .works-v2-stat-number { font-size: 36px; }
+  .works-v2-item-title { font-size: 14px; }
+  .works-v2-item--hero .works-v2-item-title { font-size: 20px; }
+  .works-v2-item-content { padding: 20px 16px; }
+  .works-v2-item--hero .works-v2-item-content { padding: 28px 20px; }
+  .works-v2-showcase { padding: 0 12px 30px; }
+
+  .cost-v2-base { padding: 28px 20px; }
+  .cost-v2-option { padding: 28px 20px; }
+  .cost-v2-base-title { font-size: 18px; }
+  .cost-v2-option-title { font-size: 18px; }
+  .cost-v2-table-wrap { padding: 16px 10px; }
+  .cost-v2-table-title { font-size: 15px; }
+  .cost-v2-case-left { padding: 28px 20px 20px; }
+  .cost-v2-case-right { padding: 20px 20px 28px; gap: 20px; }
+  .cost-v2-case-title { font-size: 20px; }
+  .cost-v2-case-item-price { font-size: 24px; }
+
+  .steps-v2-item { max-width: 280px; }
+  .steps-v2-number { width: 36px; height: 36px; font-size: 16px; }
+
   .company-v2-table th,
-  .company-v2-table td { display: block; width: 100%; }
-  .company-v2-table th { border-radius: 4px 4px 0 0; }
+  .company-v2-table td { display: block; width: 100%; padding: 12px 16px; }
+  .company-v2-table th { border-radius: 4px 4px 0 0; width: 100%; }
+  .company-v2-table td { font-size: 13px; }
+
+  .footer-v2 { padding: 32px 16px 24px; }
+  .footer-v2-nav a { font-size: 12px; }
+
+  .btn-v2 { padding: 14px 28px; font-size: 13px; }
+  .btn-v2-outline { padding: 10px 24px; font-size: 13px; }
+}
+
+/* iPhone SE / Very Small (375px and below) */
+@media (max-width: 375px) {
+  /* Global overflow prevention */
+  html, body { overflow-x: hidden; }
+
+  /* Reduce all section padding */
+  .intro-v2 { padding: 50px 16px; }
+  .news-v2 { padding: 50px 16px 60px; }
+  .advantages-v2 { padding: 50px 16px; }
+  .cost-v2 { padding: 50px 16px; }
+  .steps-v2 { padding: 50px 16px; }
+  .company-v2 { padding: 50px 16px; }
+
+  /* Header */
+  .header-v2-inner { padding: 0 16px; }
+
+  /* Section headings - prevent overflow */
+  .section-heading-v2-en {
+    font-size: 20px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .section-heading-v2-ja { font-size: 14px; }
+  .section-heading-v2 { margin-bottom: 28px; }
+
+  /* Intro */
+  .intro-v2-heading { font-size: 20px; }
+  .intro-v2-text { font-size: 14px; }
+
+  /* Advantages */
+  .advantages-v2-heading { font-size: 20px; margin-bottom: 30px; }
+  .advantages-v2-card-image { height: 220px; }
+
+  /* News */
+  .news-v2-grid { gap: 14px; }
+  .news-v2-card { grid-template-columns: 90px 1fr; }
+  .news-v2-card-body { padding: 10px 12px; }
+  .news-v2-card-title { font-size: 12px; }
+
+  /* Works */
+  .works-v2-stats { padding: 50px 16px 30px; }
+  .works-v2-stats-inner { gap: 12px; }
+  .works-v2-stat-number { font-size: 30px; }
+  .works-v2-stat-label { font-size: 11px; }
+  .works-v2-inner { padding: 0 16px; }
+  .works-v2-showcase { padding: 0 8px 24px; }
+  .works-v2-item--hero { min-height: 240px; }
+  .works-v2-item { min-height: 150px; }
+  .works-v2-item-cat { font-size: 9px; padding: 2px 8px; }
+  .works-v2-item-title { font-size: 13px; }
+  .works-v2-item--hero .works-v2-item-title { font-size: 18px; }
+  .works-v2-item-sub { font-size: 11px; }
+  .works-v2-item-content { padding: 16px 12px; }
+  .works-v2-item--hero .works-v2-item-content { padding: 20px 16px; }
+  .works-v2-more { margin-top: 30px; }
+
+  /* Cost / Price */
+  .cost-v2-base { padding: 24px 16px; }
+  .cost-v2-option { padding: 24px 16px; }
+  .cost-v2-base-title { font-size: 17px; }
+  .cost-v2-base-desc { font-size: 13px; }
+  .cost-v2-includes li { font-size: 13px; gap: 8px; }
+  .cost-v2-includes .material-icons { font-size: 16px; }
+  .cost-v2-option-title { font-size: 17px; }
+  .cost-v2-option-list li { font-size: 13px; }
+  .cost-v2-table-wrap { padding: 14px 8px; }
+  .cost-v2-table { min-width: 440px; }
+  .cost-v2-table thead th { padding: 10px 12px; font-size: 11px; }
+  .cost-v2-table tbody td { padding: 10px 12px; font-size: 13px; }
+  .cost-v2-table-price { font-size: 14px !important; }
+  .cost-v2-case-left { padding: 24px 16px 16px; }
+  .cost-v2-case-right { padding: 16px 16px 24px; gap: 16px; }
+  .cost-v2-case-title { font-size: 18px; }
+  .cost-v2-case-desc { font-size: 13px; }
+  .cost-v2-case-item-value { font-size: 18px; }
+  .cost-v2-case-item-price { font-size: 22px; }
+
+  /* Steps */
+  .steps-v2-item { max-width: 260px; padding: 16px 0; }
+  .steps-v2-tag { font-size: 11px; padding: 3px 12px; }
+  .steps-v2-title { font-size: 13px; }
+  .steps-v2-desc { font-size: 11px; }
+
+  /* Company */
+  .company-v2-table th,
+  .company-v2-table td { padding: 10px 14px; font-size: 12px; }
+
+  /* Footer */
+  .footer-v2 { padding: 28px 16px 20px; }
+  .footer-v2-nav { gap: 10px 16px; }
+  .footer-v2-nav a { font-size: 11px; }
+  .footer-v2-brand { font-size: 16px; }
+
+  /* Buttons */
+  .btn-v2 { padding: 12px 24px; font-size: 12px; }
+  .btn-v2-outline { padding: 10px 20px; font-size: 12px; }
+  .btn-v2 .material-icons,
+  .btn-v2-outline .material-icons { font-size: 16px; }
+
+  /* CTA text */
+  .cost-v2-cta-text { font-size: 13px; }
 }

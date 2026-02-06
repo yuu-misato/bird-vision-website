@@ -1,0 +1,1295 @@
+/* =============================================
+   BIRD VISION Website - Complete Replica
+   ============================================= */
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Variables */
+:root {
+  --primary: #E94E4E;
+  --primary-dark: #d43d3d;
+  --text: #333;
+  --text-light: #666;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --dark: #1a1a1a;
+  --border: #ddd;
+}
+
+/* =============================================
+   Header - 元サイト完全再現
+   ============================================= */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 40px;
+  transition: background-color 0.3s ease;
+}
+
+.header.scrolled {
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-logo {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  color: var(--text);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--white);
+  transition: opacity 0.3s ease;
+}
+
+.header-nav a:hover {
+  opacity: 0.7;
+}
+
+.header.scrolled .header-nav a {
+  color: var(--text);
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.header-contact:hover {
+  background-color: var(--primary-dark);
+}
+
+.header-contact .material-icons {
+  font-size: 1.1rem;
+}
+
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-menu-btn span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text);
+}
+
+/* =============================================
+   Hero Section - 元サイト完全再現
+   ============================================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42%;
+  height: 100%;
+  background-color: var(--white);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  /* 元サイトの曲線カット - 右側を緩やかにカーブ */
+  clip-path: ellipse(110% 100% at 0% 50%);
+}
+
+.hero-text {
+  padding: 0 60px;
+  padding-top: 80px;
+}
+
+.hero-title-line1,
+.hero-title-line2 {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+
+.hero-title-line2 {
+  margin-bottom: 30px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* =============================================
+   About Section
+   ============================================= */
+.about {
+  padding: 100px 40px;
+  background-color: var(--white);
+}
+
+.about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.about-images {
+  position: relative;
+  width: 45%;
+  min-height: 500px;
+  flex-shrink: 0;
+}
+
+.about-image {
+  position: absolute;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-image-1 {
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 280px;
+  border-radius: 100px;
+  z-index: 3;
+}
+
+.about-image-2 {
+  top: 80px;
+  left: 120px;
+  width: 280px;
+  height: 200px;
+  border-radius: 20px;
+  z-index: 2;
+}
+
+.about-image-3 {
+  top: 250px;
+  left: 40px;
+  width: 320px;
+  height: 220px;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--text-light);
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-primary .material-icons {
+  font-size: 1.1rem;
+}
+
+/* =============================================
+   Strengths Section - 元サイト完全再現
+   ============================================= */
+.strengths {
+  background-color: var(--white);
+}
+
+.strengths-header {
+  background-color: var(--dark);
+  padding: 80px 40px;
+  position: relative;
+  /* 斜めカット */
+  clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -50px;
+}
+
+.strengths-header-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 50px 60px;
+  border-radius: 0 0 0 40px;
+  margin-top: 40px;
+}
+
+.strengths-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.strengths-label::after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--text);
+  margin-top: 10px;
+}
+
+.strengths-title-wrapper {
+  display: flex;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.strengths-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.strengths-description {
+  font-size: 0.9rem;
+  line-height: 2;
+  color: var(--text-light);
+}
+
+.strengths-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.strength-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.strength-card-image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.strength-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.strength-card-content {
+  padding: 25px;
+}
+
+.strength-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.strength-card-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* =============================================
+   Works Section
+   ============================================= */
+.works {
+  padding: 80px 40px;
+  background-color: var(--white);
+}
+
+.works-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.works-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--text);
+  margin: 15px auto 50px;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.work-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.work-card-image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.work-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.work-card-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px 15px;
+}
+
+/* =============================================
+   Services Section
+   ============================================= */
+.services {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-item {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 40px;
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.service-image {
+  width: 45%;
+  flex-shrink: 0;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.service-content {
+  flex: 1;
+  padding: 40px 40px 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.service-text {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--text-light);
+}
+
+/* =============================================
+   Steps Section - 元サイト完全再現
+   ============================================= */
+.steps {
+  background-color: var(--dark);
+  padding: 0;
+  position: relative;
+  /* 斜めカット上部 */
+  clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+  margin-top: -30px;
+}
+
+.steps-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: var(--white);
+  padding: 80px 60px;
+  border-radius: 0 0 0 50px;
+  margin-top: 60px;
+}
+
+.steps-title {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.steps-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--text);
+  margin: 15px auto 50px;
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  padding: 30px;
+  background-color: var(--gray);
+  border-radius: 16px;
+}
+
+.step-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(233, 78, 78, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-icon .material-icons {
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary);
+}
+
+.step-text {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+/* =============================================
+   Business Section
+   ============================================= */
+.business {
+  padding: 100px 40px 0;
+  background-color: var(--white);
+}
+
+.business-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.business-header {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.business-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.business-watermark {
+  font-size: 7rem;
+  font-weight: 900;
+  color: var(--primary);
+  opacity: 0.15;
+  line-height: 1;
+  margin-top: -20px;
+}
+
+.business-card {
+  display: flex;
+  align-items: stretch;
+}
+
+.business-content {
+  width: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 60px;
+  border-radius: 0 40px 0 0;
+}
+
+.business-subtitle {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.business-title {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-bottom: 30px;
+}
+
+.business-text {
+  font-size: 0.95rem;
+  line-height: 2;
+  opacity: 0.95;
+}
+
+.business-image {
+  width: 45%;
+  margin-left: -5%;
+  margin-top: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.business-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =============================================
+   Company Section
+   ============================================= */
+.company {
+  padding: 100px 40px;
+  background-color: var(--white);
+}
+
+.company-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.company-header {
+  text-align: right;
+  margin-bottom: 50px;
+}
+
+.company-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.company-watermark {
+  font-size: 7rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.05);
+  line-height: 1;
+  margin-top: -20px;
+}
+
+.company-table {
+  width: 100%;
+}
+
+.company-row {
+  display: flex;
+  padding: 25px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.company-row:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.company-row-label {
+  width: 150px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.company-row-value {
+  flex: 1;
+  color: var(--text-light);
+}
+
+.company-row-value p {
+  margin-bottom: 5px;
+}
+
+.company-row-value p:last-child {
+  margin-bottom: 0;
+}
+
+/* =============================================
+   News Section
+   ============================================= */
+.news {
+  padding: 100px 40px;
+  background-color: var(--gray);
+}
+
+.news-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+}
+
+.news-header {
+  position: relative;
+  width: 150px;
+  flex-shrink: 0;
+}
+
+.news-watermark {
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.05);
+  line-height: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.news-label {
+  writing-mode: vertical-rl;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  margin-top: 80px;
+}
+
+.news-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.news-item {
+  display: flex;
+  gap: 30px;
+  transition: opacity 0.3s ease;
+}
+
+.news-item:hover {
+  opacity: 0.8;
+}
+
+.news-item-image {
+  width: 200px;
+  height: 140px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.news-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-item-content {
+  flex: 1;
+}
+
+.news-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.news-item-date {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.news-item-tag {
+  display: inline-block;
+  background-color: var(--dark);
+  color: var(--white);
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.news-item-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.news-item-text {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* =============================================
+   CTA Section
+   ============================================= */
+.cta {
+  position: relative;
+  padding: 120px 40px;
+  background-color: var(--dark);
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuOcta');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* =============================================
+   Footer
+   ============================================= */
+.footer {
+  background-color: var(--dark);
+}
+
+.footer-main {
+  background-color: var(--white);
+  border-radius: 0 60px 0 0;
+  padding: 80px 40px 40px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.footer-info {
+  flex-shrink: 0;
+}
+
+.footer-logo {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+}
+
+.footer-company {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.footer-address {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.footer-nav {
+  flex: 1;
+  max-width: 450px;
+}
+
+.footer-nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-item:hover {
+  color: var(--primary);
+}
+
+.footer-nav-item .material-icons {
+  font-size: 1.1rem;
+  color: var(--text-light);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-privacy {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+.footer-privacy:hover {
+  color: var(--primary);
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.footer-social {
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+.footer-social:hover {
+  color: var(--primary);
+}
+
+/* =============================================
+   Responsive Design
+   ============================================= */
+@media (max-width: 1024px) {
+  .hero-content {
+    width: 45%;
+  }
+
+  .about-inner {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .about-images {
+    width: 100%;
+    min-height: 400px;
+  }
+
+  .strengths-cards,
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service-item {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .service-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
+  .service-content {
+    padding: 30px;
+  }
+
+  .business-card {
+    flex-direction: column;
+  }
+
+  .business-content,
+  .business-image {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .business-image {
+    margin-top: 20px;
+  }
+
+  .news-inner {
+    flex-direction: column;
+  }
+
+  .news-header {
+    width: 100%;
+  }
+
+  .news-label {
+    writing-mode: horizontal-tb;
+    margin-top: 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+
+  .footer-nav {
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 20px;
+    background-color: var(--white);
+  }
+
+  .header-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .hero {
+    height: auto;
+    min-height: auto;
+  }
+
+  .hero-bg {
+    position: relative;
+    height: 50vh;
+  }
+
+  .hero-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    padding: 60px 30px;
+  }
+
+  .hero-text {
+    padding: 0;
+    padding-top: 0;
+  }
+
+  .hero-title-line1,
+  .hero-title-line2 {
+    font-size: 3.5rem;
+  }
+
+  .about {
+    padding: 60px 20px;
+  }
+
+  .about-images {
+    min-height: 350px;
+  }
+
+  .about-image-1 {
+    width: 160px;
+    height: 220px;
+    border-radius: 60px;
+  }
+
+  .about-image-2 {
+    width: 220px;
+    height: 160px;
+    top: 60px;
+    left: 100px;
+  }
+
+  .about-image-3 {
+    width: 260px;
+    height: 180px;
+    top: 200px;
+    left: 20px;
+  }
+
+  .about-title {
+    font-size: 1.6rem;
+  }
+
+  .strengths-header {
+    clip-path: none;
+    padding: 40px 20px;
+  }
+
+  .strengths-header-inner {
+    padding: 30px;
+    margin-top: 0;
+  }
+
+  .strengths-title-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .strengths-title {
+    font-size: 1.4rem;
+  }
+
+  .strengths-cards {
+    grid-template-columns: 1fr;
+    padding: 40px 20px;
+  }
+
+  .works {
+    padding: 60px 20px;
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services {
+    padding: 20px;
+  }
+
+  .steps {
+    clip-path: none;
+    margin-top: 0;
+  }
+
+  .steps-inner {
+    padding: 40px 20px;
+    margin-top: 0;
+    border-radius: 0 0 0 30px;
+  }
+
+  .steps-title {
+    font-size: 1.4rem;
+  }
+
+  .step-item {
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px;
+  }
+
+  .business {
+    padding: 60px 20px 0;
+  }
+
+  .business-watermark {
+    font-size: 4rem;
+  }
+
+  .business-content {
+    padding: 40px 30px;
+  }
+
+  .company {
+    padding: 60px 20px;
+  }
+
+  .company-watermark {
+    font-size: 4rem;
+  }
+
+  .company-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .company-row-label {
+    width: 100%;
+  }
+
+  .news {
+    padding: 60px 20px;
+  }
+
+  .news-item {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .news-item-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .cta {
+    padding: 80px 20px;
+  }
+
+  .cta-text {
+    font-size: 1.4rem;
+  }
+
+  .footer-main {
+    padding: 40px 20px;
+    border-radius: 0 30px 0 0;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title-line1,
+  .hero-title-line2 {
+    font-size: 2.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .about-images {
+    min-height: 280px;
+  }
+
+  .about-image-1 {
+    width: 130px;
+    height: 180px;
+  }
+
+  .about-image-2 {
+    width: 180px;
+    height: 130px;
+    top: 50px;
+    left: 80px;
+  }
+
+  .about-image-3 {
+    width: 210px;
+    height: 150px;
+    top: 160px;
+    left: 10px;
+  }
+}

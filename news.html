@@ -7,33 +7,41 @@
   <title>新着情報 | BIRD VISION(バードビジョン)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <a href="index.html" class="header-logo">BIRD VISION</a>
-    <nav class="header-nav">
-      <a href="index.html#about">私たちについて</a>
-      <a href="index.html#business">事業内容</a>
-      <a href="index.html#company">会社概要</a>
-      <a href="news.html">新着情報</a>
-      <a href="contact.html" class="header-contact-btn">
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html#about">私たちについて</a>
+    <a href="works.html">実績紹介</a>
+    <a href="services.html">サービス</a>
+    <a href="index.html#company">会社概要</a>
+    <a href="news.html">新着情報</a>
+    <a href="contact.html">お問い合わせ</a>
+  </nav>
+
+  <header class="header is-scrolled" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="header-logo">BIRD VISION</a>
+      <nav class="header-nav">
+        <a href="index.html#about">私たちについて</a>
+        <a href="works.html">実績紹介</a>
+        <a href="services.html">サービス</a>
+        <a href="index.html#company">会社概要</a>
+        <a href="news.html">新着情報</a>
+      </nav>
+      <a href="contact.html" class="header-contact">
         <span class="material-icons">mail_outline</span>
         お問い合わせ
       </a>
-    </nav>
-    <button class="mobile-menu-btn" aria-label="メニューを開く">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button class="mobile-menu-btn" id="menuBtn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </header>
 
   <main>
-    <!-- Page Header -->
     <section class="page-header">
       <div class="page-header-inner">
         <h1 class="page-title">新着情報</h1>
@@ -41,26 +49,25 @@
       </div>
     </section>
 
-    <!-- News List -->
     <section class="news-page-list">
-      <article class="news-list-item fade-in-up">
+      <article class="news-list-item reveal">
         <div class="news-list-meta">
-          <span class="news-list-date">2025/08/13</span>
+          <span class="news-list-date">2025.08.13</span>
         </div>
         <h3 class="news-list-title">なまずのぼり2025報告ニュースリリース</h3>
         <p class="news-list-text">下記リリースいたしました。<a href="https://prtimes.jp/main/html/rd/p/000000005.000127964.html" target="_blank" rel="noopener noreferrer">https://prtimes.jp/main/html/rd/p/000000005.000127964.html</a></p>
       </article>
-      <article class="news-list-item fade-in-up">
+      <article class="news-list-item reveal">
         <div class="news-list-meta">
-          <span class="news-list-date">2025/06/26</span>
+          <span class="news-list-date">2025.06.26</span>
           <span class="news-list-tag">お知らせ</span>
         </div>
         <h3 class="news-list-title">なまずのぼりのニュースリリース</h3>
         <p class="news-list-text">下記リリースいたしました。<a href="https://prtimes.jp/main/html/rd/p/000000004.000127964.html" target="_blank" rel="noopener noreferrer">https://prtimes.jp/main/html/rd/p/000000004.000127964.html</a></p>
       </article>
-      <article class="news-list-item fade-in-up">
+      <article class="news-list-item reveal">
         <div class="news-list-meta">
-          <span class="news-list-date">2024/10/26</span>
+          <span class="news-list-date">2024.10.26</span>
           <span class="news-list-tag">お知らせ</span>
         </div>
         <h3 class="news-list-title">バードビジョン公式ホームページを開設しました</h3>
@@ -69,37 +76,35 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-info">
-        <p class="footer-logo">BIRD VISION</p>
-        <p class="footer-company">篠田重機株式会社</p>
-        <p class="footer-address">〒341-0044 埼玉県三郷市戸ヶ崎2465番地1</p>
+    <div class="footer-main">
+      <div class="footer-inner">
+        <div class="footer-info">
+          <a href="index.html" class="footer-logo">BIRD VISION</a>
+          <p class="footer-company">篠田重機株式会社</p>
+          <p class="footer-address">〒341-0044 埼玉県三郷市戸ヶ崎2465番地1</p>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html" class="footer-nav-item"><span>トップ</span><span class="material-icons">arrow_forward</span></a>
+          <a href="index.html#about" class="footer-nav-item"><span>BIRD VISIONについて</span><span class="material-icons">arrow_forward</span></a>
+          <a href="works.html" class="footer-nav-item"><span>実績紹介</span><span class="material-icons">arrow_forward</span></a>
+          <a href="services.html" class="footer-nav-item"><span>サービス</span><span class="material-icons">arrow_forward</span></a>
+          <a href="index.html#company" class="footer-nav-item"><span>会社概要</span><span class="material-icons">arrow_forward</span></a>
+          <a href="news.html" class="footer-nav-item"><span>新着情報</span><span class="material-icons">arrow_forward</span></a>
+          <a href="contact.html" class="footer-nav-item"><span>お問い合わせ</span><span class="material-icons">arrow_forward</span></a>
+        </nav>
       </div>
-      <nav class="footer-nav">
-        <ul class="footer-nav-list">
-          <li><a href="index.html#top" class="footer-nav-item">トップ <span class="material-icons">arrow_forward</span></a></li>
-          <li><a href="index.html#about" class="footer-nav-item">BIRD VISION(バードビジョン®︎)について <span class="material-icons">arrow_forward</span></a></li>
-          <li><a href="index.html#business" class="footer-nav-item">事業内容 <span class="material-icons">arrow_forward</span></a></li>
-          <li><a href="index.html#company" class="footer-nav-item">会社概要 <span class="material-icons">arrow_forward</span></a></li>
-          <li><a href="news.html" class="footer-nav-item">新着情報 <span class="material-icons">arrow_forward</span></a></li>
-          <li><a href="contact.html" class="footer-nav-item">お問い合わせ <span class="material-icons">arrow_forward</span></a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="footer-bottom">
-      <a href="privacypolicy.html" class="footer-privacy">プライバシー・ポリシー</a>
-      <p class="footer-copyright">© 2024 BIRD VISION SHINODA JUKI All Rights Reserved</p>
-      <div class="footer-social">
-        <a href="https://www.instagram.com/shinoda_juki/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </a>
+      <div class="footer-bottom">
+        <a href="privacypolicy.html" class="footer-privacy">プライバシー・ポリシー</a>
+        <p class="footer-copyright">&copy; 2024 BIRD VISION SHINODA JUKI All Rights Reserved</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/shinoda_juki/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
-  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

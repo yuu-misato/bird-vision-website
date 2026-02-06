@@ -675,33 +675,10 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   font-weight: 600;
   opacity: 0.7;
 }
-.cost-v2-base-price {
-  display: flex;
-  align-items: baseline;
-  gap: 2px;
-  margin-bottom: 12px;
-}
-.cost-v2-yen {
-  font-size: 24px;
-  font-weight: 700;
+.cost-v2-base-desc {
+  font-size: 14px;
+  line-height: 1.8;
   opacity: 0.7;
-}
-.cost-v2-amount {
-  font-size: clamp(42px, 5vw, 56px);
-  font-weight: 900;
-  font-style: italic;
-  letter-spacing: -2px;
-  line-height: 1;
-}
-.cost-v2-unit {
-  font-size: 16px;
-  font-weight: 600;
-  opacity: 0.6;
-  margin-left: 4px;
-}
-.cost-v2-base-note {
-  font-size: 12px;
-  opacity: 0.5;
   margin-bottom: 28px;
 }
 .cost-v2-includes {
@@ -793,6 +770,104 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   font-size: 20px;
   color: var(--navy);
   opacity: 0.5;
+}
+
+/* --- Full Price Table --- */
+.cost-v2-table-wrap {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(26,39,68,0.08);
+  margin-bottom: 40px;
+  padding: 40px;
+}
+.cost-v2-table-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.cost-v2-table-note {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+.cost-v2-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.cost-v2-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px;
+}
+.cost-v2-table thead th {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--white);
+  background: var(--navy);
+  padding: 14px 20px;
+  text-align: left;
+  white-space: nowrap;
+}
+.cost-v2-table thead th:first-child { border-radius: 6px 0 0 0; }
+.cost-v2-table thead th:last-child { border-radius: 0 6px 0 0; text-align: right; }
+.cost-v2-table tbody td {
+  font-size: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-900);
+  white-space: nowrap;
+}
+.cost-v2-table tbody td strong {
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+.cost-v2-table-price {
+  text-align: right !important;
+  font-weight: 800 !important;
+  font-size: 16px !important;
+  color: var(--navy) !important;
+}
+.cost-v2-table-price span {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.5;
+  margin-left: 2px;
+}
+.cost-v2-table-consult {
+  font-style: italic;
+  opacity: 0.7;
+}
+.cost-v2-table-highlight {
+  background: rgba(26,39,68,0.04);
+  position: relative;
+}
+.cost-v2-table-highlight td {
+  border-bottom: 2px solid var(--navy);
+  border-top: 2px solid var(--navy);
+}
+.cost-v2-table-highlight td:first-child::before {
+  content: 'POPULAR';
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--white);
+  background: var(--navy);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+.cost-v2-table tbody tr {
+  transition: background 0.2s ease;
+}
+.cost-v2-table tbody tr:hover {
+  background: rgba(26,39,68,0.03);
 }
 
 /* --- Case Study --- */
@@ -1234,6 +1309,8 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .cost-v2-plus { padding: 16px 0; }
   .cost-v2-plus .material-icons { transform: rotate(90deg); }
   .cost-v2-option { padding: 36px 28px; }
+  .cost-v2-table-wrap { padding: 24px 16px; }
+  .cost-v2-table-title { font-size: 17px; }
   .cost-v2-case-info { padding: 32px 24px; }
   .cost-v2-case-title { font-size: 20px; }
   .cost-v2-case-line { flex-direction: column; align-items: flex-start; gap: 4px; }

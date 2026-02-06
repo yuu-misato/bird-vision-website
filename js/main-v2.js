@@ -29,14 +29,14 @@
 
   // Cursor hover effects
   document.addEventListener('mouseover', (e) => {
-    const target = e.target.closest('a, button, .works-v2-item, .advantages-v2-card, .cost-v2-card');
+    const target = e.target.closest('a, button, .works-v2-item, .works-v2-stat, .advantages-v2-card, .cost-v2-card');
     if (target) {
       cursor.classList.add('cursor-hover');
       cursorDot.classList.add('cursor-hover');
     }
   });
   document.addEventListener('mouseout', (e) => {
-    const target = e.target.closest('a, button, .works-v2-item, .advantages-v2-card, .cost-v2-card');
+    const target = e.target.closest('a, button, .works-v2-item, .works-v2-stat, .advantages-v2-card, .cost-v2-card');
     if (target) {
       cursor.classList.remove('cursor-hover');
       cursorDot.classList.remove('cursor-hover');
@@ -142,7 +142,7 @@
 
   /* ======= WORKS TILT EFFECT ======= */
   function initTiltCards() {
-    document.querySelectorAll('.works-v2-item, .advantages-v2-card-image').forEach(card => {
+    document.querySelectorAll('.advantages-v2-card-image').forEach(card => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -153,6 +153,22 @@
         card.style.transform = '';
         card.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
         setTimeout(() => card.style.transition = 'transform 0.3s ease', 600);
+      });
+    });
+
+    // Works items — cinematic mouse-follow parallax on background
+    document.querySelectorAll('.works-v2-item').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        const afterEl = card.querySelector('.works-v2-item-shine');
+        card.style.backgroundPosition = `${50 + x * 10}% ${50 + y * 10}%`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.backgroundPosition = 'center';
+        card.style.transition = 'background-position 0.6s ease';
+        setTimeout(() => card.style.transition = '', 600);
       });
     });
   }

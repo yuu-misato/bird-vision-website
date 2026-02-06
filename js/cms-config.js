@@ -15,8 +15,8 @@
 
 const CMS_CONFIG = {
   // ▼▼▼ ここを自分のmicroCMS情報に書き換え ▼▼▼
-  SERVICE_DOMAIN: 'YOUR_SERVICE_DOMAIN',  // 例: 'birdvision'
-  API_KEY: 'YOUR_API_KEY',                // 例: 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+  SERVICE_DOMAIN: 'birdvision',
+  API_KEY: 'fJ4SfMVPi928qCoOQEIoJvmjtlUfdNKRqKLB',
   // ▲▲▲ ここを書き換え ▲▲▲
 
   ENDPOINT: 'news',

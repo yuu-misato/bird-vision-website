@@ -29,14 +29,14 @@
 
   // Cursor hover effects
   document.addEventListener('mouseover', (e) => {
-    const target = e.target.closest('a, button, .works-v2-item, .works-v2-stat, .advantages-v2-card, .cost-v2-card');
+    const target = e.target.closest('a, button, .works-v2-item, .works-v2-stat, .advantages-v2-card, .cost-v2-base, .cost-v2-option');
     if (target) {
       cursor.classList.add('cursor-hover');
       cursorDot.classList.add('cursor-hover');
     }
   });
   document.addEventListener('mouseout', (e) => {
-    const target = e.target.closest('a, button, .works-v2-item, .works-v2-stat, .advantages-v2-card, .cost-v2-card');
+    const target = e.target.closest('a, button, .works-v2-item, .works-v2-stat, .advantages-v2-card, .cost-v2-base, .cost-v2-option');
     if (target) {
       cursor.classList.remove('cursor-hover');
       cursorDot.classList.remove('cursor-hover');

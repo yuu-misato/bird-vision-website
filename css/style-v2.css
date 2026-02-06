@@ -1405,6 +1405,9 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
 @media (max-width: 768px) {
   :root { --header-height: 64px; }
 
+  /* PC用改行をモバイルで非表示 → 自然改行に */
+  .br-pc { display: none; }
+
   .header-v2-nav { display: none; }
   .header-v2-cta { display: none; }
   .mobile-menu-btn-v2 { display: flex; }
@@ -1530,14 +1533,14 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .cost-v2-option { padding: 28px 20px; }
   .cost-v2-base-title { font-size: 18px; }
   .cost-v2-option-title { font-size: 18px; }
-  .cost-v2-table-wrap { padding: 20px 16px; }
+  .cost-v2-table-wrap { padding: 20px 16px; overflow: visible; }
   .cost-v2-table-title { font-size: 15px; }
 
   /* カード型料金表（モバイル） */
   .cost-v2-table-scroll { overflow-x: visible; }
   .cost-v2-table { min-width: 0; }
   .cost-v2-table thead { display: none; }
-  .cost-v2-table tbody { display: flex; flex-direction: column; gap: 10px; }
+  .cost-v2-table tbody { display: flex; flex-direction: column; gap: 12px; }
   .cost-v2-table tbody tr {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1552,6 +1555,8 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
     border-bottom: none;
     white-space: normal;
     font-size: 13px;
+    word-break: break-all;
+    overflow-wrap: break-word;
   }
   /* 機種名（左上） */
   .cost-v2-table tbody td:nth-child(1) {
@@ -1563,7 +1568,7 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   }
   .cost-v2-table tbody td:nth-child(1) strong {
     color: var(--white);
-    font-size: 16px;
+    font-size: 15px;
   }
   /* 料金（右上） */
   .cost-v2-table tbody td:nth-child(4) {
@@ -1576,7 +1581,7 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
     align-items: center;
     justify-content: flex-end;
   }
-  .cost-v2-table-price { color: var(--white) !important; font-size: 15px !important; }
+  .cost-v2-table-price { color: var(--white) !important; font-size: 14px !important; }
   .cost-v2-table-price span { color: rgba(255,255,255,0.6); }
   /* クレーン種別（左下） */
   .cost-v2-table tbody td:nth-child(2) {
@@ -1593,10 +1598,12 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
     font-weight: 700;
     color: var(--navy);
   }
-  /* ハイライト（POPULAR）行 */
+  /* ハイライト（POPULAR）カード */
   .cost-v2-table-highlight {
     border: 2px solid var(--navy) !important;
     position: relative;
+    overflow: visible !important;
+    margin-top: 8px;
   }
   .cost-v2-table-highlight td {
     border: none;
@@ -1604,12 +1611,11 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .cost-v2-table-highlight td:first-child::before {
     transform: none;
     position: absolute;
-    top: -10px;
+    top: -11px;
     left: 12px;
     font-size: 9px;
-    padding: 2px 10px;
+    padding: 3px 12px;
     border-radius: 3px;
-    rotate: none;
   }
   .cost-v2-case-left { padding: 28px 20px 20px; }
   .cost-v2-case-right { padding: 20px 20px 28px; gap: 20px; }
@@ -1635,6 +1641,8 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
 @media (max-width: 375px) {
   /* Global overflow prevention */
   html, body { overflow-x: hidden; }
+  img, video, iframe, table { max-width: 100%; }
+  p, h1, h2, h3, h4, li, td, th, a, span, div, section { overflow-wrap: break-word; word-wrap: break-word; }
 
   /* Reduce all section padding */
   .intro-v2 { padding: 50px 16px; }
@@ -1698,26 +1706,34 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .cost-v2-includes .material-icons { font-size: 16px; }
   .cost-v2-option-title { font-size: 17px; }
   .cost-v2-option-list li { font-size: 13px; }
-  .cost-v2-table-wrap { padding: 14px 8px; }
-  .cost-v2-table tbody td { padding: 8px 12px; font-size: 12px; }
-  .cost-v2-table tbody td:nth-child(1) strong { font-size: 14px; }
-  .cost-v2-table-price { font-size: 13px !important; }
-  .cost-v2-case-left { padding: 24px 16px 16px; }
-  .cost-v2-case-right { padding: 16px 16px 24px; gap: 16px; }
-  .cost-v2-case-title { font-size: 18px; }
-  .cost-v2-case-desc { font-size: 13px; }
-  .cost-v2-case-item-value { font-size: 18px; }
-  .cost-v2-case-item-price { font-size: 22px; }
+  .cost-v2-table-wrap { padding: 14px 8px; overflow: visible; }
+  .cost-v2-table tbody { gap: 10px; }
+  .cost-v2-table tbody td { padding: 8px 10px; font-size: 11px; }
+  .cost-v2-table tbody td:nth-child(1) { padding: 10px; }
+  .cost-v2-table tbody td:nth-child(1) strong { font-size: 13px; }
+  .cost-v2-table tbody td:nth-child(4) { padding: 10px; }
+  .cost-v2-table-price { font-size: 12px !important; }
+  .cost-v2-table-highlight { margin-top: 6px; }
+  .cost-v2-case-left { padding: 20px 14px 14px; }
+  .cost-v2-case-right { padding: 14px 14px 20px; gap: 14px; }
+  .cost-v2-case-eyebrow { font-size: 10px; }
+  .cost-v2-case-title { font-size: 17px; }
+  .cost-v2-case-desc { font-size: 12px; overflow-wrap: break-word; }
+  .cost-v2-case-item-label { font-size: 10px; }
+  .cost-v2-case-item-value { font-size: 16px; }
+  .cost-v2-case-item-meta { font-size: 11px; }
+  .cost-v2-case-item-price { font-size: 20px; }
+  .cost-v2-cta-text { font-size: 12px; }
 
   /* Steps */
-  .steps-v2-item { max-width: 260px; padding: 16px 0; }
+  .steps-v2-item { max-width: 100%; padding: 16px 0; }
   .steps-v2-tag { font-size: 11px; padding: 3px 12px; }
-  .steps-v2-title { font-size: 13px; }
+  .steps-v2-title { font-size: 13px; word-break: break-word; }
   .steps-v2-desc { font-size: 11px; }
 
   /* Company */
   .company-v2-table th,
-  .company-v2-table td { padding: 10px 14px; font-size: 12px; }
+  .company-v2-table td { padding: 10px 14px; font-size: 12px; word-break: break-word; overflow-wrap: break-word; }
 
   /* Footer */
   .footer-v2 { padding: 28px 16px 20px; }
@@ -1731,8 +1747,14 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .btn-v2 .material-icons,
   .btn-v2-outline .material-icons { font-size: 16px; }
 
-  /* CTA text */
-  .cost-v2-cta-text { font-size: 13px; }
+  /* Buttons */
+  .btn-v2 {
+    padding: 12px 20px;
+    font-size: 12px;
+    max-width: 100%;
+    word-break: break-word;
+  }
+  .btn-v2-outline { padding: 10px 16px; font-size: 11px; }
 
   /* News Detail */
   .news-detail-container { padding: calc(var(--header-height) + 24px) 16px 48px; }

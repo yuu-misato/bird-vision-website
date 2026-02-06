@@ -160,6 +160,7 @@ button { border: none; background: none; cursor: pointer; font-family: inherit; 
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding-top: var(--header-height);
 }
 .hero-v2-bg {
   width: 100%;

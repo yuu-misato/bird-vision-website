@@ -70,34 +70,9 @@
           <p class="section-heading-v2-ja">新着情報</p>
         </div>
 
-        <div class="news-v2-grid stagger-children">
-          <a href="news.html" class="news-v2-card fade-in">
-            <div class="news-v2-card-image">
-              <img src="https://storage.googleapis.com/studio-cms-assets/projects/G3qbB1vEqJ/s-2400x1601_v-frms_webp_bbc2ac57-6d6f-488a-a1ab-a916e31309c3_small.webp" alt="バードビジョン公式ホームページを開設しました">
-            </div>
-            <div class="news-v2-card-body">
-              <time class="news-v2-card-date">2025.01</time>
-              <h3 class="news-v2-card-title">バードビジョン公式ホームページを開設しました</h3>
-            </div>
-          </a>
-          <a href="https://prtimes.jp/main/html/rd/p/000000005.000127964.html" target="_blank" rel="noopener noreferrer" class="news-v2-card fade-in">
-            <div class="news-v2-card-image">
-              <img src="https://storage.googleapis.com/studio-cms-assets/projects/G3qbB1vEqJ/s-4411x2941_v-frms_webp_7c03c46f-67e8-4085-99a9-7049a4cb3d63_small.webp" alt="なまずのぼり2025">
-            </div>
-            <div class="news-v2-card-body">
-              <time class="news-v2-card-date">2025.05</time>
-              <h3 class="news-v2-card-title">なまずのぼり2025 ニュースリリース</h3>
-            </div>
-          </a>
-          <a href="news.html" class="news-v2-card fade-in">
-            <div class="news-v2-card-image">
-              <img src="https://storage.googleapis.com/studio-cms-assets/projects/G3qbB1vEqJ/s-6720x4480_v-frms_webp_1eff24a9-8282-44a5-8f7c-c7d20a426b3d_small.webp" alt="なまずのぼり">
-            </div>
-            <div class="news-v2-card-body">
-              <time class="news-v2-card-date">2025.05</time>
-              <h3 class="news-v2-card-title">なまずのぼり — クレーン空撮イベント</h3>
-            </div>
-          </a>
+        <div class="news-v2-grid stagger-children" id="newsGrid">
+          <!-- microCMS から動的に読み込み -->
+          <div class="news-v2-loading">読み込み中...</div>
         </div>
 
         <div class="news-v2-more fade-in">
@@ -550,6 +525,8 @@
     </div>
   </footer>
 
+  <script src="js/cms-config.js"></script>
+  <script src="js/news-loader.js"></script>
   <script src="js/main-v2.js"></script>
 </body>
 </html>

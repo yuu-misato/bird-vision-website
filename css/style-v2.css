@@ -1515,26 +1515,32 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
 
   /* モバイル実績カード：写真がしっかり見えるレイアウト */
   .works-v2-item {
-    min-height: 220px;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
     border-radius: 12px;
-    background-position: center 30%;
+    background-size: cover;
+    background-position: center center;
   }
   .works-v2-item--hero {
-    min-height: 280px;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
     height: auto;
-    background-position: center 30%;
+  }
+  /* ::afterパララックスを無効化 → 直接backgroundを表示 */
+  .works-v2-item::after {
+    content: none !important;
   }
   .works-v2-item::before {
-    background: linear-gradient(180deg, transparent 40%, rgba(26,39,68,0.85) 80%) !important;
+    background: linear-gradient(180deg, transparent 30%, rgba(26,39,68,0.8) 70%) !important;
   }
   .works-v2-item-content {
-    padding: 20px;
+    padding: 16px 20px;
   }
   .works-v2-item--hero .works-v2-item-content {
-    padding: 24px;
+    padding: 20px 24px;
   }
   .works-v2-item-title { font-size: 18px; }
-  .works-v2-item--hero .works-v2-item-title { font-size: 24px; }
+  .works-v2-item--hero .works-v2-item-title { font-size: 22px; }
   .works-v2-item-sub { font-size: 13px; }
   .works-v2-stats { padding: 60px 20px 40px; }
   .works-v2-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 20px; }
@@ -1601,8 +1607,8 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
 
   .works-v2-grid { grid-template-columns: 1fr; }
   .works-v2-grid .works-v2-item:last-child { grid-column: auto; }
-  .works-v2-item { min-height: 200px; }
-  .works-v2-item--hero { min-height: 260px; }
+  .works-v2-item { aspect-ratio: 16 / 10; }
+  .works-v2-item--hero { aspect-ratio: 16 / 9; }
   .works-v2-stats-inner { grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .works-v2-stat-number { font-size: 36px; }
   .works-v2-item-title { font-size: 14px; }
@@ -1769,14 +1775,14 @@ body.is-loaded .header-v2 { opacity: 1; transform: translateY(0); transition: op
   .works-v2-showcase { padding: 0 8px 24px; gap: 8px; }
   .works-v2-grid { grid-template-columns: 1fr; gap: 8px; }
   .works-v2-grid .works-v2-item:last-child { grid-column: auto; }
-  .works-v2-item--hero { min-height: 220px; }
-  .works-v2-item { min-height: 180px; border-radius: 10px; }
+  .works-v2-item { aspect-ratio: 16 / 10; border-radius: 10px; }
+  .works-v2-item--hero { aspect-ratio: 16 / 9; }
   .works-v2-item-cat { font-size: 9px; padding: 2px 8px; }
   .works-v2-item-title { font-size: 15px; }
   .works-v2-item--hero .works-v2-item-title { font-size: 20px; }
   .works-v2-item-sub { font-size: 11px; }
-  .works-v2-item-content { padding: 16px 14px; }
-  .works-v2-item--hero .works-v2-item-content { padding: 20px 16px; }
+  .works-v2-item-content { padding: 14px 12px; }
+  .works-v2-item--hero .works-v2-item-content { padding: 18px 14px; }
   .works-v2-more { margin-top: 30px; }
 
   /* Cost / Price */

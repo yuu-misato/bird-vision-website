@@ -89,10 +89,26 @@
   }
 
   /**
+   * 画像部分のHTML生成（サムネイルの有無で分岐）
+   */
+  function createImageHTML(thumbUrl, title) {
+    if (thumbUrl) {
+      return `
+        <div class="news-v2-card-image">
+          <img src="${thumbUrl}" alt="${title}" loading="lazy">
+        </div>`;
+    }
+    return `
+      <div class="news-v2-card-image news-v2-card-image--noimage">
+        <span class="material-icons news-v2-card-noimage-icon">article</span>
+      </div>`;
+  }
+
+  /**
    * トップページ用ニュースカード
    */
   function createCardHTML(item) {
-    const thumb = item.thumbnail?.url || DEFAULT_THUMB;
+    const thumb = item.thumbnail?.url || '';
     const title = item.title || 'No Title';
     const date = formatDate(item.date);
     const href = getArticleHref(item);
@@ -100,9 +116,7 @@
 
     return `
       <a href="${href}"${targetAttr} class="news-v2-card fade-in is-visible">
-        <div class="news-v2-card-image">
-          <img src="${thumb}" alt="${title}" loading="lazy">
-        </div>
+        ${createImageHTML(thumb, title)}
         <div class="news-v2-card-body">
           <time class="news-v2-card-date">${date}</time>
           <h3 class="news-v2-card-title">${title}</h3>
@@ -115,7 +129,7 @@
    * 一覧ページ用ニュースカード
    */
   function createListCardHTML(item) {
-    const thumb = item.thumbnail?.url || DEFAULT_THUMB;
+    const thumb = item.thumbnail?.url || '';
     const title = item.title || 'No Title';
     const date = formatDateFull(item.date);
     const href = getArticleHref(item);
@@ -123,9 +137,7 @@
 
     return `
       <a href="${href}"${targetAttr} class="news-v2-card fade-in is-visible">
-        <div class="news-v2-card-image">
-          <img src="${thumb}" alt="${title}" loading="lazy">
-        </div>
+        ${createImageHTML(thumb, title)}
         <div class="news-v2-card-body">
           <time class="news-v2-card-date">${date}</time>
           <h3 class="news-v2-card-title">${title}</h3>

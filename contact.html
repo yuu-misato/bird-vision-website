@@ -3,84 +3,560 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BIRD VISION（バードビジョン）へのお問い合わせページです。空撮サービスに関するご質問やご依頼はこちらからお気軽にお問い合わせください。">
-  <title>お問い合わせ | BIRD VISION(バードビジョン)</title>
+  <meta name="description" content="BIRD VISION（バードビジョン）へのお問い合わせ。クレーン空撮サービスに関するご質問・お見積もり・撮影依頼はこちらからお気軽にどうぞ。">
+  <title>お問い合わせ | BIRDVISION - クレーン空撮サービス</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style-v2.css">
+  <style>
+    /* =============================================
+       CONTACT PAGE SPECIFIC STYLES
+       ============================================= */
+
+    /* Page Hero */
+    .contact-hero {
+      position: relative;
+      padding: calc(var(--header-height) + 60px) 30px 60px;
+      background: var(--navy);
+      overflow: hidden;
+      text-align: center;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(42,61,94,0.6) 0%, transparent 70%),
+        radial-gradient(ellipse at 80% 50%, rgba(42,61,94,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .contact-hero-en {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 900;
+      font-style: italic;
+      color: rgba(255,255,255,0.06);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-hero-title {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 700;
+      color: var(--white);
+      margin-top: 8px;
+      letter-spacing: 0.08em;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-hero-sub {
+      font-size: clamp(13px, 1.5vw, 15px);
+      color: rgba(255,255,255,0.6);
+      margin-top: 12px;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px 30px;
+      font-size: 12px;
+      color: var(--gray-500);
+    }
+    .breadcrumb a {
+      color: var(--gray-500);
+      transition: color 0.3s;
+    }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb span { margin: 0 8px; }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 60px 30px 100px;
+    }
+    .contact-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Contact Info */
+    .contact-info {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .contact-info-title {
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .contact-info-text {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.9;
+    }
+
+    /* Phone Card */
+    .contact-phone-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 24px 32px;
+      margin-bottom: 48px;
+      transition: box-shadow 0.4s;
+    }
+    .contact-phone-card:hover {
+      box-shadow: 0 4px 24px rgba(26,39,68,0.08);
+    }
+    .contact-phone-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .contact-phone-icon .material-icons { font-size: 22px; }
+    .contact-phone-body {
+      text-align: left;
+    }
+    .contact-phone-label {
+      font-size: 12px;
+      color: var(--gray-500);
+      margin-bottom: 2px;
+    }
+    .contact-phone-number {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+    .contact-phone-hours {
+      font-size: 11px;
+      color: var(--gray-500);
+      margin-top: 2px;
+    }
+
+    /* Divider */
+    .contact-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+      color: var(--gray-300);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+    }
+    .contact-divider::before,
+    .contact-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+    .required {
+      color: #dc3545;
+      margin-left: 4px;
+      font-size: 11px;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      border-radius: 8px;
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--navy);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(26,39,68,0.08);
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--gray-300);
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='%236b7280'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+    .form-textarea {
+      min-height: 180px;
+      resize: vertical;
+      line-height: 1.8;
+    }
+
+    /* Radio Group */
+    .form-radio-group {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .form-radio {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .form-radio:hover { color: var(--navy); }
+    .form-radio input[type="radio"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--gray-300);
+      border-radius: 50%;
+      transition: border-color 0.3s;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .form-radio input[type="radio"]:checked {
+      border-color: var(--navy);
+    }
+    .form-radio input[type="radio"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 8px; height: 8px;
+      background: var(--navy);
+      border-radius: 50%;
+    }
+
+    /* Checkbox */
+    .form-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+    }
+    .form-checkbox input[type="checkbox"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--gray-300);
+      border-radius: 4px;
+      transition: border-color 0.3s, background 0.3s;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .form-checkbox input[type="checkbox"]:checked {
+      border-color: var(--navy);
+      background: var(--navy);
+    }
+    .form-checkbox input[type="checkbox"]:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px; left: 5px;
+      width: 6px; height: 10px;
+      border: 2px solid var(--white);
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+    .form-privacy-link {
+      font-size: 13px;
+      color: var(--navy);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: opacity 0.3s;
+      margin-left: 30px;
+    }
+    .form-privacy-link:hover { opacity: 0.7; }
+
+    /* Submit Button */
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 400px;
+      margin: 16px auto 0;
+      padding: 18px 40px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: var(--font-sans);
+      color: var(--white);
+      background: var(--navy);
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: transform 0.4s cubic-bezier(.4,.4,0,1), box-shadow 0.4s, opacity 0.3s;
+    }
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(26,39,68,0.25);
+    }
+    .form-submit:active {
+      transform: translateY(0);
+    }
+
+    /* Submit states */
+    .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .form-submit.is-sending .material-icons {
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Success / Error messages */
+    .form-result {
+      text-align: center;
+      padding: 48px 24px;
+      border-radius: 12px;
+      display: none;
+    }
+    .form-result.is-visible { display: block; }
+    .form-result--success {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+    }
+    .form-result--error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+    }
+    .form-result-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    .form-result--success .form-result-icon { color: #16a34a; }
+    .form-result--error .form-result-icon { color: #dc2626; }
+    .form-result-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+    .form-result-text {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+    .form-result-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 24px;
+      padding: 12px 32px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: var(--font-sans);
+      color: var(--white);
+      background: var(--navy);
+      border: none;
+      border-radius: 60px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .form-result-btn:hover { opacity: 0.85; }
+
+    /* Fade-in animation */
+    .contact-fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(.4,.4,0,1), transform 0.8s cubic-bezier(.4,.4,0,1);
+    }
+    .contact-fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-hero {
+        padding: calc(var(--header-height) + 40px) 20px 40px;
+      }
+      .contact-section {
+        padding: 40px 20px 80px;
+      }
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .contact-phone-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+      .contact-phone-body { text-align: center; }
+      .form-privacy-link { margin-left: 0; display: block; margin-top: 4px; }
+    }
+    @media (max-width: 375px) {
+      .contact-hero {
+        padding: calc(var(--header-height) + 30px) 16px 30px;
+      }
+      .contact-section { padding: 30px 16px 60px; }
+      .form-input, .form-select, .form-textarea { padding: 12px 14px; font-size: 14px; }
+      .form-submit { padding: 16px 32px; font-size: 14px; }
+      .contact-phone-number { font-size: 20px; }
+    }
+  </style>
 </head>
 <body>
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html#about">私たちについて</a>
-    <a href="works.html">実績紹介</a>
-    <a href="services.html">サービス</a>
-    <a href="index.html#company">会社概要</a>
-    <a href="news.html">新着情報</a>
-    <a href="contact.html">お問い合わせ</a>
+
+  <!-- Mobile Navigation Overlay -->
+  <nav class="mobile-nav-v2" id="mobileNavV2">
+    <a href="index-v2.html#news"><span class="mobile-nav-en">News</span><span class="mobile-nav-ja">新着情報</span></a>
+    <a href="index-v2.html#advantages"><span class="mobile-nav-en">Advantages</span><span class="mobile-nav-ja">強み</span></a>
+    <a href="index-v2.html#works"><span class="mobile-nav-en">Works</span><span class="mobile-nav-ja">業務実績</span></a>
+    <a href="index-v2.html#cost"><span class="mobile-nav-en">Price</span><span class="mobile-nav-ja">料金プラン</span></a>
+    <a href="index-v2.html#steps"><span class="mobile-nav-en">Flow</span><span class="mobile-nav-ja">撮影までの流れ</span></a>
+    <a href="index-v2.html#company"><span class="mobile-nav-en">Company</span><span class="mobile-nav-ja">会社概要</span></a>
+    <a href="contact.html" class="mobile-nav-cta">Contact</a>
   </nav>
 
-  <header class="header is-scrolled" id="header">
-    <div class="header-inner">
-      <a href="index.html" class="header-logo">BIRD VISION</a>
-      <nav class="header-nav">
-        <a href="index.html#about">私たちについて</a>
-        <a href="works.html">実績紹介</a>
-        <a href="services.html">サービス</a>
-        <a href="index.html#company">会社概要</a>
-        <a href="news.html">新着情報</a>
-      </nav>
-      <a href="contact.html" class="header-contact">
-        <span class="material-icons">mail_outline</span>
-        お問い合わせ
+  <!-- Header -->
+  <header class="header-v2 is-scrolled" id="headerV2">
+    <div class="header-v2-inner">
+      <a href="index-v2.html" class="header-v2-logo">
+        <img src="images/logo-birdvision.webp" alt="BIRDVISION - クレーン空撮サービス" class="header-v2-logo-img">
       </a>
-      <button class="mobile-menu-btn" id="menuBtn" aria-label="メニューを開く">
+      <nav class="header-v2-nav">
+        <a href="index-v2.html#news"><span class="nav-en">News</span><span class="nav-ja">新着情報</span></a>
+        <a href="index-v2.html#advantages"><span class="nav-en">Advantages</span><span class="nav-ja">強み</span></a>
+        <a href="index-v2.html#works"><span class="nav-en">Works</span><span class="nav-ja">実績</span></a>
+        <a href="index-v2.html#cost"><span class="nav-en">Price</span><span class="nav-ja">料金</span></a>
+        <a href="index-v2.html#steps"><span class="nav-en">Flow</span><span class="nav-ja">流れ</span></a>
+        <a href="index-v2.html#company"><span class="nav-en">Company</span><span class="nav-ja">会社概要</span></a>
+      </nav>
+      <a href="contact.html" class="header-v2-cta"><span class="nav-en">Contact</span><span class="nav-ja">お問い合わせ</span></a>
+      <button class="mobile-menu-btn-v2" id="menuBtnV2" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
   <main>
-    <section class="page-header">
-      <div class="page-header-inner">
-        <h1 class="page-title">お問い合わせ</h1>
-        <p class="page-title-en">Contact</p>
-      </div>
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+      <p class="contact-hero-en">Contact</p>
+      <h1 class="contact-hero-title">お問い合わせ</h1>
+      <p class="contact-hero-sub">撮影のご相談・お見積もりなど、お気軽にお問い合わせください</p>
     </section>
 
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+      <a href="index-v2.html">TOP</a><span>/</span>お問い合わせ
+    </nav>
+
+    <!-- Contact Form Section -->
     <section class="contact-section">
       <div class="contact-inner">
-        <div class="contact-info reveal">
-          <h2 class="contact-info-title">些細なことでも構いません。<br>お気軽にお問合せください。</h2>
-          <p class="contact-info-text">こちらの問い合わせフォームに必要事項をご記入の上、「送信」ボタンを押してください。<br>お問い合わせ内容によっては返信できかねる場合もございます。予めご了承ください。</p>
+
+        <!-- Contact Info -->
+        <div class="contact-info contact-fade-in">
+          <h2 class="contact-info-title">些細なことでも構いません。<br>お気軽にお問い合わせください。</h2>
+          <p class="contact-info-text">こちらのフォームに必要事項をご記入の上、「送信」ボタンを押してください。<br>内容を確認の上、担当者よりご連絡いたします。</p>
         </div>
-        <form class="contact-form reveal" action="#" method="post">
+
+        <!-- Phone Card -->
+        <div class="contact-phone-card contact-fade-in">
+          <div class="contact-phone-icon">
+            <span class="material-icons">phone</span>
+          </div>
+          <div class="contact-phone-body">
+            <p class="contact-phone-label">お電話でのお問い合わせ</p>
+            <a href="tel:048-953-3231" class="contact-phone-number">048-953-3231</a>
+            <p class="contact-phone-hours">受付時間 9:00〜18:00（土日祝を除く）</p>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="contact-divider contact-fade-in">または フォームから</div>
+
+        <!-- Form -->
+        <form class="contact-form contact-fade-in" id="contactForm" action="https://docs.google.com/forms/d/e/1TB-w9kmMqCU5Wgrfbhty7_Ab5y4JAmPZ1AeAQj5B4aA/formResponse" method="post">
           <div class="form-row">
             <div class="form-group">
               <label for="last-name" class="form-label">姓<span class="required">*</span></label>
-              <input type="text" id="last-name" name="last-name" class="form-input" placeholder="例：山田" required>
+              <input type="text" id="last-name" name="entry.316246745" class="form-input" placeholder="例：山田" required>
             </div>
             <div class="form-group">
               <label for="first-name" class="form-label">名<span class="required">*</span></label>
-              <input type="text" id="first-name" name="first-name" class="form-input" placeholder="例：太郎" required>
+              <input type="text" id="first-name" name="entry.1270799292" class="form-input" placeholder="例：太郎" required>
             </div>
           </div>
           <div class="form-group">
-            <label for="email" class="form-label">ご連絡先メールアドレス<span class="required">*</span></label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="例：info@example.com" required>
+            <label for="company" class="form-label">会社名・団体名</label>
+            <input type="text" id="company" name="entry.1483397225" class="form-input" placeholder="例：株式会社サンプル">
           </div>
           <div class="form-group">
-            <label for="phone" class="form-label">ご連絡先電話番号</label>
-            <input type="tel" id="phone" name="phone" class="form-input" placeholder="例：070-1234-5678">
+            <label for="email" class="form-label">メールアドレス<span class="required">*</span></label>
+            <input type="email" id="email" name="entry.1730850595" class="form-input" placeholder="例：info@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">電話番号</label>
+            <input type="tel" id="phone" name="entry.761924961" class="form-input" placeholder="例：070-1234-5678">
           </div>
           <div class="form-group">
             <label for="inquiry-type" class="form-label">お問い合わせ種別</label>
-            <select id="inquiry-type" name="inquiry-type" class="form-select">
+            <select id="inquiry-type" name="entry.771491305" class="form-select">
               <option value="">選択してください</option>
-              <option value="撮影依頼">撮影依頼</option>
-              <option value="見積り依頼">見積り依頼</option>
-              <option value="取材依頼">取材依頼</option>
+              <option value="撮影依頼">撮影のご依頼</option>
+              <option value="見積り依頼">お見積もり</option>
+              <option value="取材依頼">取材のご依頼</option>
               <option value="その他">その他</option>
             </select>
           </div>
@@ -88,65 +564,137 @@
             <label class="form-label">ご希望の連絡手段</label>
             <div class="form-radio-group">
               <label class="form-radio">
-                <input type="radio" name="contact-method" value="メール">
+                <input type="radio" name="entry.1356998900" value="メール">
                 メール
               </label>
               <label class="form-radio">
-                <input type="radio" name="contact-method" value="電話">
+                <input type="radio" name="entry.1356998900" value="電話">
                 電話
               </label>
               <label class="form-radio">
-                <input type="radio" name="contact-method" value="どちらでも">
+                <input type="radio" name="entry.1356998900" value="どちらでも" checked>
                 どちらでも
               </label>
             </div>
           </div>
           <div class="form-group">
             <label for="message" class="form-label">お問い合わせ内容<span class="required">*</span></label>
-            <textarea id="message" name="message" class="form-textarea" placeholder="お問い合わせ内容をご入力ください" required></textarea>
+            <textarea id="message" name="entry.1447392860" class="form-textarea" placeholder="撮影場所、ご希望の日時、撮影内容など、できるだけ詳しくご記入ください" required></textarea>
           </div>
           <div class="form-group">
             <label class="form-checkbox">
               <input type="checkbox" name="privacy-agree" required>
-              プライバシー・ポリシーに同意する
+              <a href="privacypolicy.html" class="form-privacy-link" style="margin-left:0">プライバシー・ポリシー</a>に同意する
             </label>
-            <a href="privacypolicy.html" class="form-privacy-link">プライバシー・ポリシーを確認する</a>
           </div>
-          <button type="submit" class="form-submit">送信</button>
+          <button type="submit" class="form-submit" id="submitBtn">送信する <span class="material-icons">arrow_forward</span></button>
         </form>
+
+        <!-- Success Message -->
+        <div class="form-result form-result--success" id="formSuccess">
+          <div class="form-result-icon material-icons">check_circle</div>
+          <h3 class="form-result-title">送信が完了しました</h3>
+          <p class="form-result-text">お問い合わせいただきありがとうございます。<br>内容を確認の上、担当者よりご連絡いたします。</p>
+          <a href="index-v2.html" class="form-result-btn">トップページへ戻る <span class="material-icons" style="font-size:16px">arrow_forward</span></a>
+        </div>
+
+        <!-- Error Message -->
+        <div class="form-result form-result--error" id="formError">
+          <div class="form-result-icon material-icons">error_outline</div>
+          <h3 class="form-result-title">送信に失敗しました</h3>
+          <p class="form-result-text">申し訳ございません。時間をおいて再度お試しいただくか、<br>お電話（048-953-3231）にてお問い合わせください。</p>
+          <button class="form-result-btn" onclick="location.reload()">もう一度試す <span class="material-icons" style="font-size:16px">refresh</span></button>
+        </div>
+
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer-main">
-      <div class="footer-inner">
-        <div class="footer-info">
-          <a href="index.html" class="footer-logo">BIRD VISION</a>
-          <p class="footer-company">篠田重機株式会社</p>
-          <p class="footer-address">〒341-0044 埼玉県三郷市戸ヶ崎2465番地1</p>
-        </div>
-        <nav class="footer-nav">
-          <a href="index.html" class="footer-nav-item"><span>トップ</span><span class="material-icons">arrow_forward</span></a>
-          <a href="index.html#about" class="footer-nav-item"><span>BIRD VISIONについて</span><span class="material-icons">arrow_forward</span></a>
-          <a href="works.html" class="footer-nav-item"><span>実績紹介</span><span class="material-icons">arrow_forward</span></a>
-          <a href="services.html" class="footer-nav-item"><span>サービス</span><span class="material-icons">arrow_forward</span></a>
-          <a href="index.html#company" class="footer-nav-item"><span>会社概要</span><span class="material-icons">arrow_forward</span></a>
-          <a href="news.html" class="footer-nav-item"><span>新着情報</span><span class="material-icons">arrow_forward</span></a>
-          <a href="contact.html" class="footer-nav-item"><span>お問い合わせ</span><span class="material-icons">arrow_forward</span></a>
+  <!-- Footer -->
+  <footer class="footer-v2">
+    <div class="footer-v2-inner">
+      <div class="footer-v2-top">
+        <a href="index-v2.html" class="footer-v2-logo">
+          <img src="images/logo-birdvision.webp" alt="BIRDVISION - 篠田重機のクレーン空撮サービス" class="footer-v2-logo-img" loading="lazy">
+        </a>
+        <nav class="footer-v2-nav">
+          <a href="index-v2.html#news">新着情報</a>
+          <a href="index-v2.html#advantages">強み</a>
+          <a href="index-v2.html#works">実績</a>
+          <a href="index-v2.html#cost">料金</a>
+          <a href="index-v2.html#steps">流れ</a>
+          <a href="index-v2.html#company">会社概要</a>
+          <a href="contact.html">お問い合わせ</a>
         </nav>
       </div>
-      <div class="footer-bottom">
-        <a href="privacypolicy.html" class="footer-privacy">プライバシー・ポリシー</a>
-        <p class="footer-copyright">&copy; 2024 BIRD VISION SHINODA JUKI All Rights Reserved</p>
-        <div class="footer-social">
-          <a href="https://www.instagram.com/shinoda_juki/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-          </a>
-        </div>
+      <div class="footer-v2-bottom">
+        <p class="footer-v2-brand">BIRDVISION</p>
+        <p class="footer-v2-copyright">&copy; 2026 BIRD VISION SHINODA JUKI All Rights Reserved</p>
       </div>
     </div>
   </footer>
-  <script src="js/main.js"></script>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtnV2');
+    const mobileNav = document.getElementById('mobileNavV2');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('is-open');
+        mobileNav.classList.toggle('is-open');
+        document.body.classList.toggle('menu-open');
+      });
+    }
+
+    // Fade-in on scroll
+    const fadeEls = document.querySelectorAll('.contact-fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Google Form submission
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formSuccess = document.getElementById('formSuccess');
+    const formError = document.getElementById('formError');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Disable button & show sending state
+        submitBtn.disabled = true;
+        submitBtn.classList.add('is-sending');
+        submitBtn.innerHTML = '送信中... <span class="material-icons">sync</span>';
+
+        const formData = new FormData(contactForm);
+
+        try {
+          await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+          });
+
+          // Success (no-cors doesn't return readable response, so assume success)
+          contactForm.style.display = 'none';
+          formSuccess.classList.add('is-visible');
+          formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } catch (err) {
+          // Error
+          contactForm.style.display = 'none';
+          formError.classList.add('is-visible');
+          formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+  </script>
+  <script src="js/main-v2.js"></script>
 </body>
 </html>
